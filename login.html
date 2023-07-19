@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login AuthentID</title>
+    <!-- Google Fonts - Poppins and Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Split Screen */
+        .split-screen {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left Half */
+        .left-half {
+            flex: 1;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            background-color: #fff;
+        }
+
+        /* Right Half - Gradient Background */
+        .right-half {
+            flex: 1;
+            background: linear-gradient(to right, #D4145A, #FBB03B);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            position: relative;
+        }
+
+        /* AuthentID Logo */
+        .authentid-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Login Card */
+        .login-card {
+            background-color: #f2f2f2;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: auto;
+            transition: all 0.3s ease;
+        }
+
+        .login-card:hover {
+            transform: scale(1.05); /* Add zoom-in effect on hover */
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-card-body {
+            padding: 30px;
+            border-radius: 10px;
+            opacity: 0.9;
+        }
+
+        /* Input Fields */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        /* Password Toggle Icon */
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        /* Login Button */
+        .btn-login {
+            background-color: #FBB03B;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            padding: 6px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            width: 25%; /* Reduce the width to 3/4 */
+            transition: all 0.3s ease; /* Add transition back */
+            margin-left: auto; /* Align to right */
+            margin-right: auto; /* Align to right */
+        }
+
+        .btn-login:hover {
+            background-color: #D4145A;
+            transform: translateY(-3px);
+        }
+
+        /* Forgot Password Link */
+        .forgot-password {
+            text-align: right;
+            margin-top: -10px;
+        }
+
+        .forgot-password a {
+            color: #333;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        /* Jumbotron Button Text Color */
+        .jumbotron .btn-get-started {
+            color: #fff;
+        }
+
+        /* Product Features */
+        .product-features {
+            margin: 30px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease; /* Add zoom-in transition */
+        }
+
+        .feature:hover {
+            transform: scale(1.1); /* Zoom in on hover */
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #fff;
+        }
+
+        .feature-description {
+            color: #fff;
+        }
+
+        /* Additional Icons */
+        .fas.fa-address-card:before { content: "\f2bb"; } /* Address Card Icon */
+        .fas.fa-fingerprint:before { content: "\f577"; } /* Fingerprint Icon */
+        .fas.fa-user-shield:before { content: "\f505"; } /* User Shield Icon */
+        .fas.fa-lock:before { content: "\f023"; } /* Lock Icon */
+        .fas.fa-shield-alt:before { content: "\f3ed"; } /* Shield Alt Icon */
+        .fas.fa-user-check:before { content: "\f4fc"; } /* User Check Icon */
+        .fas.fa-check-circle:before { content: "\f058"; } /* Check Circle Icon */
+        .fas.fa-file-contract:before { content: "\f56c"; } /* File Contract Icon */
+        .fas.fa-users-cog:before { content: "\f509"; } /* Users Cog Icon */
+    </style>
+</head>
+
+<body>
+<!-- Split Screen -->
+<div class="split-screen">
+    <!-- Left Half -->
+    <div class="left-half">
+        <!-- Login Card -->
+        <div class="login-card">
+            <div class="login-card-body">
+                <h4 class="mb-4">Login</h4>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        <span class="password-toggle-icon" onclick="togglePasswordVisibility()">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-login">Login</button>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Half - Gradient Background -->
+    <div class="right-half">
+        <div class="authentid-logo">AuthentID</div>
+        <!-- Product Features -->
+        <div class="product-features">
+            <div class="feature">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <div class="feature-description">Secure and Reliable</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-fingerprint feature-icon"></i>
+                <div class="feature-description">Advanced Biometric Verification</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-user-check feature-icon"></i>
+                <div class="feature-description">Effortless Identity Verification</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-address-card feature-icon"></i>
+                <div class="feature-description">Comprehensive KYC Solution</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-user-shield feature-icon"></i>
+                <div class="feature-description">Enhanced User Protection</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-lock feature-icon"></i>
+                <div class="feature-description">Multi-layer Security</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle feature-icon"></i>
+                <div class="feature-description">Real-time Verification</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-file-contract feature-icon"></i>
+                <div class="feature-description">Legally Compliant</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users-cog feature-icon"></i>
+                <div class="feature-description">Flexible Pricing</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Password Visibility Toggle Script -->
+<script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById("password");
+        const passwordToggleIcon = document.querySelector(".password-toggle-icon i");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            passwordToggleIcon.classList.remove("fa-eye");
+            passwordToggleIcon.classList.add("fa-eye-slash");
+        } else {
+            passwordInput.type = "password";
+            passwordToggleIcon.classList.remove("fa-eye-slash");
+            passwordToggleIcon.classList.add("fa-eye");
+        }
+    }
+</script>
+</body>
+
+</html>
