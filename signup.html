@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to AuthentID</title>
+    <!-- Google Fonts - Poppins and Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Split Screen */
+        .split-screen {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left Half - Gradient Background */
+        .left-half-signup {
+            flex: 1;
+            background: linear-gradient(to right, #D4145A, #FBB03B);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            position: relative;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        /* AuthentID Logo */
+        .authentid-logo-signup {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Right Half */
+        .right-half-signup {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        /* Signup Card */
+        .signup-card {
+            background-color: #f2f2f2;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            flex: 0.6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            border-width: 2px; /* Reduced the border width to match the input fields */
+            width: 260px;
+            height: 500px;
+            margin: auto;
+            transition: all 0.3s ease;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        .signup-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .signup-card-body {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        /* Input Fields */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+            display: block;
+        }
+
+        /* Reduce input sizes for first name and last name fields */
+        input.form-control.smaller-input {
+            font-size: 12px;
+            padding: 5px 10px;
+            width: 150px;
+        }
+
+        /* Increase input sizes for email and password fields */
+        input.form-control.larger-input {
+            font-size: 14px;
+            padding: 8px 12px;
+            width: 100%; /* Increased the width to 100% */
+        }
+
+        /* Password Toggle Icon */
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        /* Signup Button */
+        .btn-signup {
+            background-color: #FBB03B;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            padding: 6px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            width: 35%;
+            transition: all 0.3s ease;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 14px;
+        }
+
+        .btn-signup:hover {
+            background-color: #D4145A;
+            transform: translateY(-3px);
+        }
+
+        /* Jumbotron Button Text Color */
+        .jumbotron .btn-get-started {
+            color: #fff;
+        }
+
+        /* Product Features */
+        .product-features {
+            margin: 30px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease; /* Add zoom-in transition */
+        }
+
+        .feature:hover {
+            transform: scale(1.1); /* Zoom in on hover */
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #fff;
+        }
+
+        .feature-description {
+            color: #fff;
+        }
+
+        /* Additional Icons */
+        .fas.fa-address-card:before { content: "\f2bb"; } /* Address Card Icon */
+        .fas.fa-fingerprint:before { content: "\f577"; } /* Fingerprint Icon */
+        .fas.fa-user-shield:before { content: "\f505"; } /* User Shield Icon */
+        .fas.fa-lock:before { content: "\f023"; } /* Lock Icon */
+        .fas.fa-shield-alt:before { content: "\f3ed"; } /* Shield Alt Icon */
+        .fas.fa-user-check:before { content: "\f4fc"; } /* User Check Icon */
+        .fas.fa-check-circle:before { content: "\f058"; } /* Check Circle Icon */
+        .fas.fa-file-contract:before { content: "\f56c"; } /* File Contract Icon */
+        .fas.fa-users-cog:before { content: "\f509"; } /* Users Cog Icon */
+
+    </style>
+</head>
+
+<body>
+<!-- Split Screen -->
+<div class="split-screen">
+    <!-- Left Half - Gradient Background -->
+    <div class="left-half-signup">
+        <div class="authentid-logo-signup">AuthentID</div>
+        <!-- Product Features -->
+        <div class="product-features">
+            <div class="feature">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <div class="feature-description">Secure and Reliable</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-fingerprint feature-icon"></i>
+                <div class="feature-description">Advanced Biometric Verification</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-user-check feature-icon"></i>
+                <div class="feature-description">Effortless Identity Verification</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-address-card feature-icon"></i>
+                <div class="feature-description">Comprehensive KYC Solution</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-user-shield feature-icon"></i>
+                <div class="feature-description">Enhanced User Protection</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-lock feature-icon"></i>
+                <div class="feature-description">Multi-layer Security</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle feature-icon"></i>
+                <div class="feature-description">Real-time Verification</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-file-contract feature-icon"></i>
+                <div class="feature-description">Legally Compliant</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users-cog feature-icon"></i>
+                <div class="feature-description">Flexible Pricing</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Half -->
+    <div class="right-half-signup">
+        <!-- Signup Card -->
+        <div class="signup-card">
+            <div class="signup-card-body">
+                <h4 class="mb-4">Create Account</h4>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control smaller-input" id="firstName" placeholder="First Name">
+                        </div>
+                        <div class="col">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control smaller-input" id="lastName" placeholder="Last Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control larger-input" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        <span class="password-toggle-icon" onclick="togglePasswordVisibility()">
+                    <i class="fas fa-eye"></i>
+                </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="photo">User Photo</label>
+                    <input type="file" class="form-control smaller-input" id="photo">
+                </div>
+                <button type="submit" class="btn btn-signup">Sign Up</button>
+                <div class="signin-link">
+                    <a href="#">Already have an account? Sign In</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById("password");
+        const passwordToggleIcon = document.querySelector(".password-toggle-icon i");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            passwordToggleIcon.classList.remove("fa-eye");
+            passwordToggleIcon.classList.add("fa-eye-slash");
+        } else {
+            passwordInput.type = "password";
+            passwordToggleIcon.classList.remove("fa-eye-slash");
+            passwordToggleIcon.classList.add("fa-eye");
+        }
+    }
+</script>
+
+</body>
+
+</html>
