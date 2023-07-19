@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to AuthentID</title>
+    <!-- Google Fonts - Poppins and Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+        }
+
+        .jumbotron {
+            background: linear-gradient(to right, #D4145A, #FBB03B);
+            color: #fff;
+        }
+
+        .btn-get-started {
+            background-color: transparent;
+            color: #D4145A;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-weight: 500;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .btn-get-started::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s;
+        }
+
+        .btn-get-started:hover {
+            color: #fff;
+            background-color: #D4145A;
+            transform: translateY(-3px);
+        }
+
+        .btn-get-started:hover::before {
+            left: 100%;
+        }
+
+        /* 3D Animation - Floating Cards */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card-container .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            width: 250px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center icons */
+        }
+
+        .card-container .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            text-align: justify;
+        }
+
+        /* About Us Section */
+        #about-us {
+            background: linear-gradient(to right, #D4145A, #FBB03B);
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        /* Content in About Us Section */
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px; /* Add margin between card div and content div */
+        }
+
+        .about-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 30%; /* Adjust width of the card div to take half of the space */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px; /* Add margin between card div and content div */
+            transition: all 0.3s ease; /* Add transition for smooth zoom effect */
+        }
+
+        .about-card:hover {
+            transform: scale(1.05); /* Apply the zoom in effect on hover */
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.5); /* Increase the shadow on hover */
+        }
+
+        .about-text {
+            width: 50%; /* Adjust width of the content div to take half of the space */
+            text-align: justify; /* Align the content to justify */
+        }
+
+        #sales-team .sales-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+
+        /* Footer Section */
+        footer {
+            background: linear-gradient(to right, #D4145A, #FBB03B);
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 14px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Product Name in Header */
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 50px 0;
+        }
+
+        /* Container Spacing */
+        .container {
+            padding: 0 20px;
+        }
+
+        /* Jumbotron Button Text Color */
+        .jumbotron .btn-get-started {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: linear-gradient(to right, rgba(212, 20, 90, 0.8), rgba(251, 176, 59, 0.8));">
+    <div class="container">
+        <a class="navbar-brand" href="#">AuthentID</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-us">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#get-started">Get Started</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Jumbotron -->
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to AuthentID</h1>
+    <p class="lead">Your Trusted KYC-Based Service</p>
+    <hr class="my-4">
+    <p>We believe in secure and efficient identity verification to create a safer and more connected world.</p>
+    <a class="btn btn-lg btn-get-started" href="#get-started" role="button">Get Started</a>
+</div>
+
+<!-- Services Section -->
+<section id="services">
+    <div class="container">
+        <h2 class="text-center">Our Services</h2>
+        <div class="card-container">
+            <div class="card">
+                <i class="fas fa-user-check fa-3x mb-3"></i>
+                <h4 class="card-title">Identity Verification</h4>
+                <p class="card-text">Confirm the authenticity of your customers or users with our identity verification solutions. Prevent fraudulent activities and create a secure environment for your business.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-file-alt fa-3x mb-3"></i>
+                <h4 class="card-title">Document Verification</h4>
+                <p class="card-text">Validate important documents, such as passports, driver's licenses, and IDs, with our AI-powered document verification system. Accuracy and reliability are our top priorities.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-fingerprint fa-3x mb-3"></i>
+                <h4 class="card-title">Biometric Authentication</h4>
+                <p class="card-text">Embrace the future of security with our biometric authentication services. Fingerprint, facial recognition, and voice verification options enhance user experience without compromising safety.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-shield-alt fa-3x mb-3"></i>
+                <h4 class="card-title">Security Solutions</h4>
+                <p class="card-text">Enhance your security infrastructure with our cutting-edge security solutions. Protect your sensitive data and ensure the highest level of trust for your users.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-search-dollar fa-3x mb-3"></i>
+                <h4 class="card-title">Fraud Detection</h4>
+                <p class="card-text">Prevent fraudulent activities and detect suspicious behavior with our advanced fraud detection system. Keep your platform safe and reliable for all users.</p>
+            </div>
+            <!-- Add more services as needed -->
+        </div>
+    </div>
+</section>
+
+<!-- Get Started Section -->
+<section id="get-started" class="bg-light py-5">
+    <div class="container text-center">
+        <h2>Experience the AuthentID Difference</h2>
+        <p class="lead">Join us on this journey towards a safer and more secure digital landscape.</p>
+        <a class="btn btn-lg btn-get-started" href="#" role="button">Sign Up Now</a>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about-us">
+    <div class="container">
+        <h2 class="text-center mb-4">About Us</h2>
+        <div class="about-content">
+
+            <!-- Content -->
+            <div class="about-text" style="flex: 1; margin-right: 40px;">
+                <h3 class="mb-3">Who We Are</h3>
+                <p>AuthentID is a leading KYC-based service provider dedicated to ensuring the security and trustworthiness of online interactions. Our advanced identity verification solutions, powered by state-of-the-art AI algorithms, offer a seamless experience for businesses and their customers. We believe in building a safer and more secure digital world, where users can confidently connect and engage without fear of identity fraud or unauthorized access.</p>
+                <h3 class="mt-5">Why Choose AuthentID?</h3>
+                <ul class="list-unstyled text-left">
+                    <li><i class="fas fa-check-circle mr-2 text-success"></i> Robust Identity Verification Process</li>
+                    <li><i class="fas fa-check-circle mr-2 text-success"></i> AI-Powered Document Validation</li>
+                    <li><i class="fas fa-check-circle mr-2 text-success"></i> Enhanced Biometric Authentication</li>
+                    <li><i class="fas fa-check-circle mr-2 text-success"></i> Cutting-Edge Fraud Detection</li>
+                    <li><i class="fas fa-check-circle mr-2 text-success"></i> Secure and Reliable</li>
+                </ul>
+            </div>
+
+            <!-- Card -->
+            <div class="about-card" style="flex: 0.7; height:500px ;margin-left: 200px; background-color: #f9f9f9; color: #333; padding: 4px; border-radius: 4px;">
+                <h4 class="mb-2" style="margin-top: 30px">Contact Us</h4>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" style="font-size: 12px;">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" style="font-size: 12px;">
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <input type="tel" class="form-control" id="contact" placeholder="Enter your contact number" style="font-size: 12px;">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" style="font-size: 12px;"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3 btn-get-started" style="font-size: 12px;">Send Message</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer>
+    <div class="container">
+        <p>&copy; 2023 AuthentID. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
